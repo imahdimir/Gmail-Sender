@@ -20,7 +20,7 @@ def write_mail(sender, subj, df_row):
     msg['From'] = sender
     msg['To'] = r.Email
     msg['Subject'] = subj  # The subject line
-    mail_cont = ''.join(str(col) + ' :  ' + str(r[col]) + '\n' for col in
+    mail_cont = ''.join(str(col) + ':  ' + str(r[col]) + '\n' for col in
                         r.index.difference(['Email']))
     msg.attach(MIMEText(mail_cont, 'plain'))
     return msg.as_string()
